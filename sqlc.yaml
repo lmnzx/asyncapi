@@ -5,8 +5,8 @@ sql:
     schema: "schema.sql"
     gen:
       go:
-        package: "repository"
-        out: "repository"
+        package: "store"
+        out: "store"
         sql_package: "pgx/v5"
         emit_json_tags: true
         overrides:
