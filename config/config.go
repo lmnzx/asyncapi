@@ -8,6 +8,8 @@ import (
 
 type Config struct {
 	DatabaseConnectionString string `env:"DATABASE_URL"`
+	ApiServerHost            string `env:"APISERVER_HOST"`
+	ApiServerPort            string `env:"APISERVER_PORT"`
 }
 
 func New() (*Config, error) {
@@ -16,4 +18,8 @@ func New() (*Config, error) {
 		return nil, fmt.Errorf("failed to load config: %w", err)
 	}
 	return &cfg, nil
+}
+
+func (c *Config) GetAddr() string {
+	return fmt.Sprintf("%s:%s", c.ApiServerHost, c.ApiServerPort)
 }

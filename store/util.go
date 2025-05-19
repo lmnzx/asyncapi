@@ -9,7 +9,7 @@ import (
 
 type CreateUserParams struct {
 	Email    string `json:"email"`
-	Password string `json:"hashed_password"`
+	Password string `json:"password"`
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
